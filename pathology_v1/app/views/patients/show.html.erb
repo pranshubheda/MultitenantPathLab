@@ -1,0 +1,70 @@
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>        
+            </li>
+            <% end %>
+          <h3><center>Patient Details</h3></center>
+           <h4>Enter your details</h4>
+        </div>
+        <div class="modal-body">
+
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @patient.name %>
+          </p>
+
+          <p>
+            <strong>Age:</strong>
+            <%= @patient.age %>
+          </p>
+
+          <p>
+            <strong>Gender:</strong>
+            <%= @patient.gender %>
+          </p>
+
+          <p>
+            <strong>Bloodgroup:</strong>
+            <%= @patient.bloodgroup %>
+          </p>
+
+          <p>
+            <strong>Address:</strong>
+            <%= @patient.address %>
+          </p>
+
+          <p>
+            <strong>Mobileno:</strong>
+            <%= @patient.mobileno %>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <%= @patient.email %>
+          </p>
+
+          <p>
+            <strong>Test name:</strong>
+            <%= @patient.test_name %>
+          </p>
+
+          <%= link_to 'Edit', edit_patient_path(@patient) %> |
+          <%= link_to 'Back', patients_path %>
+
+      </div>  
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>

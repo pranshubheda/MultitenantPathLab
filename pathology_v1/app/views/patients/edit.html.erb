@@ -1,0 +1,21 @@
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+<h1>Editing Patient</h1>
+
+<%= render 'form', patient: @patient %>
+
+<center><%= link_to 'Show', @patient %> |
+<%= link_to 'Back', patients_path %>
+</center>center>
+
+		</div>
+		</div>
+		</div>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>

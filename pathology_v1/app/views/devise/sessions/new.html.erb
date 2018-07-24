@@ -1,0 +1,48 @@
+
+<% if SubdomainHelper.matches? request %>	
+	
+<center>
+	<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+<%- flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, id: "flash_#{name}" %>
+<%- end -%>
+	<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Welcome to <%= Tenant.current.name %></h3>
+          <h5>Please Login </h5>
+        </div>
+        <div class="modal-body">
+          <%= f.error_notification %>
+          <div class="form-inputs">
+			<%= f.input :email, required: false, autofocus: true %>
+			<%= f.input :password, required: false %>
+			<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+		</div>
+       </div>
+       
+       <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <%= f.button :submit, "Log in" %>         
+          <h4 style="text-align:left"><%= render "devise/shared/links" %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<% end %>
+	
+<% else %>
+	<%= render :template => "tenants/new"%>
+<% end %>
+
+        
+ 
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>

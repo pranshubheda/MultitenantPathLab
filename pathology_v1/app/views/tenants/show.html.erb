@@ -1,0 +1,26 @@
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        </div>
+	      
+	        <div class="modal-body">
+		      	<div class="form-inputs">
+			      	<center>
+						<h1>Hello, You have successfully registered as a tenant!<h1>
+						<h1>Please use the subdomain: "<%= Tenant.find_by(id: params[:id]).subdomain %>"  to sign in future.</h1>
+						<%= link_to('Redirect To Subdomain', 'http://'+Tenant.find_by(id: params[:id]).subdomain+'.lvh.me:3000/' , class: "text-center") %>
+			      	</center>
+		      	</div>
+	        </div>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>

@@ -1,0 +1,57 @@
+<%= simple_form_for(@patient) do |f| %>
+  <%= f.error_notification %>
+  
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>        
+            </li>
+            <% end %>
+          <h3><center>Patient Details</h3></center>
+           <h4>Enter your details</h4>
+        </div>
+          <div class="modal-body">
+           <div class="form-group">
+            <div class="form-inputs">
+              <p>
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+              </p>
+              <p>
+              <%= f.label :gender %>
+              <%= f.select :gender,["Male","Female"] %>
+              </p> 
+              <p>
+              <%= f.label :bloodgroup %> 
+              <%= f.select :bloodgroup,["A+","B+","AB+","0+","A-","B-","0-",] %>
+              </p>
+              <p>
+              <%= f.label :age %>
+              <%= f.text_field :age %>
+              </p>
+              <p>
+              <%= f.label :address %>
+              <%= f.text_area :address,:cols=>"39",:rows=>"7" %>
+              </p>
+              <p>
+              <%= f.label :mobileno %>
+              <%= f.text_field :mobileno %>
+              </p>
+              <p>
+              <%= f.label :email %>
+              <%= f.text_field :email %>
+              </p>
+              <p>
+              <%= f.label :test_name %> 
+              <%= f.select :test_name,["CBC","Swine Flu","Urine","Stool","Uri Culture"] %>
+              </p>
+              <div class="form-actions">
+               <%= f.button :submit %>
+              </div>
+            </div>
+          </div>
+          </div>
+
+<% end %>
+
