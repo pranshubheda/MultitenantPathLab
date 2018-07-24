@@ -1,24 +1,8 @@
-# README
+# Multitenant Pathology Lab Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+We had built this application as a part of our college project.
 
-Things you may want to cover:
+The main purpose of this project was to convert an application with traditional 3-tier architecture to a SaaS Model, where the same code base could be used to serve multiple clients.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is an implementation of the paper that we published in the International Conference on Cloud Computing and Virtualization (ICCCV).
+<a href="https://www.tcetmumbai.in/MULTICON/2017/ICCCV.pdf">link</a>
